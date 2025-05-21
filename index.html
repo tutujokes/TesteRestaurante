@@ -436,114 +436,42 @@
     </div>
    </div>
   </footer>
-<!-- Início -->
-<section id="inicio" class="snap-section relative h-screen w-full flex items-center justify-center text-center px-6">
-  <!-- conteúdo da seção -->
-</section>
+  <script>
+   // Mobile menu toggle
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
 
-<!-- Quem Somos -->
-<section id="quem-somos" class="snap-section max-w-7xl mx-auto px-6 sm:px-8 py-20 md:py-32 fade-in" tabindex="0">
-  <!-- conteúdo da seção -->
-</section>
-
-<!-- Cardápio -->
-<section id="cardapio" class="snap-section bg-gray-50 py-20 md:py-32 px-6 sm:px-8 fade-in" tabindex="0">
-  <!-- conteúdo da seção -->
-</section>
-
-<!-- Reserva -->
-<section id="reserva" class="snap-section max-w-3xl mx-auto px-6 sm:px-8 py-20 md:py-32 fade-in" tabindex="0">
-  <!-- conteúdo da seção -->
-</section>
-
-<!-- Footer -->
-<footer class="bg-white border-t border-gray-200 py-12 mt-20">
-  <div class="max-w-7xl mx-auto px-6 sm:px-8 flex flex-col md:flex-row justify-between items-center text-gray-700 text-sm">
-    <div class="mb-6 md:mb-0 text-center md:text-left">
-      <p class="font-playfair font-semibold text-[#bfa46f] text-lg mb-2">Lustro</p>
-      <p>Rua da Elegância, 123, São Paulo, SP</p>
-      <p>Telefone: (11) 99999-9999</p>
-      <p>Email: contato@lustro.com.br</p>
-    </div>
-    <div class="flex space-x-6 text-xl text-[#bfa46f]">
-      <a aria-label="Facebook" class="hover:text-[#a88f4a] transition-colors duration-300" href="https://www.facebook.com/lustro" target="_blank"><i class="fab fa-facebook-f"></i></a>
-      <a aria-label="Instagram" class="hover:text-[#a88f4a] transition-colors duration-300" href="https://www.instagram.com/lustro" target="_blank"><i class="fab fa-instagram"></i></a>
-      <a aria-label="Twitter" class="hover:text-[#a88f4a] transition-colors duration-300" href="https://www.twitter.com/lustro" target="_blank"><i class="fab fa-twitter"></i></a>
-      <a aria-label="Email" class="hover:text-[#a88f4a] transition-colors duration-300" href="mailto:contato@lustro.com.br"><i class="fas fa-envelope"></i></a>
-    </div>
-  </div>
-</footer>
-
-<!-- Script Final -->
-<script>
-  // Mobile menu toggle
-  const menuBtn = document.getElementById('menu-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-  menuBtn.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
-  });
-
-  // Set min date for date input to today
-  const dateInput = document.getElementById('data');
-  const today = new Date().toISOString().split('T')[0];
-  dateInput.setAttribute('min', today);
-
-  // Fade-in animation on scroll
-  const faders = document.querySelectorAll('.fade-in');
-  const appearOptions = {
-    threshold: 0.1,
-    rootMargin: "0px 0px -50px 0px"
-  };
-  const appearOnScroll = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
     });
-  }, appearOptions);
-  faders.forEach(fader => {
-    appearOnScroll.observe(fader);
-  });
 
-  // Scroll travado por seção
-  const sections = Array.from(document.querySelectorAll('.snap-section'));
-  let isScrolling = false;
+    // Set min date for date input to today
+    const dateInput = document.getElementById('data');
+    const today = new Date().toISOString().split('T')[0];
+    dateInput.setAttribute('min', today);
 
-  function getClosestSection(direction) {
-    const scrollY = window.scrollY;
-    let closest = null;
-    let closestDistance = Infinity;
+    // Fade-in animation on scroll
+    const faders = document.querySelectorAll('.fade-in');
 
-    for (const section of sections) {
-      const rect = section.getBoundingClientRect();
-      const sectionTop = scrollY + rect.top;
-      const distance = direction === 'down'
-        ? sectionTop - scrollY
-        : scrollY - sectionTop;
+    const appearOptions = {
+      threshold: 0.1,
+      rootMargin: "0px 0px -50px 0px"
+    };
 
-      if (distance >= 50 && distance < closestDistance) {
-        closest = section;
-        closestDistance = distance;
-      }
-    }
+    const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) {
+          return;
+        } else {
+          entry.target.classList.add('visible');
+          appearOnScroll.unobserve(entry.target);
+        }
+      });
+    }, appearOptions);
 
-    return closest;
-  }
-
-  window.addEventListener('wheel', (e) => {
-    if (isScrolling) return;
-    isScrolling = true;
-    const direction = e.deltaY > 0 ? 'down' : 'up';
-    const targetSection = getClosestSection(direction);
-
-    if (targetSection) {
-      targetSection.scrollIntoView({ behavior: 'smooth' });
-    }
-
-    setTimeout(() => {
-      isScrolling = false;
-    }, 1000);
-  }, { passive: true });
-</script>
-</body>
+    faders.forEach(fader => {
+      appearOnScroll.observe(fader);
+    });
+  </script>
+ </body>
 </html>
