@@ -1,0 +1,395 @@
+<html class="scroll-smooth" lang="pt-BR">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Lustro - Restaurante de Alto Padrão
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&amp;family=Roboto&amp;display=swap" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <style>
+   html {
+      scroll-behavior: smooth;
+    }
+    /* Fade-in animation for sections */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1s ease-out, transform 1s ease-out;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+ </head>
+ <body class="bg-gray-50 text-gray-900 font-['Roboto']">
+  <!-- Navbar -->
+  <nav class="fixed top-0 left-0 right-0 bg-white bg-opacity-90 backdrop-blur-md shadow-md z-50">
+   <div class="max-w-7xl mx-auto px-6 sm:px-8 flex items-center justify-between h-16">
+    <a class="font-playfair text-3xl text-amber-700 font-bold tracking-wide select-none" href="#inicio">
+     Lustro
+    </a>
+    <button aria-label="Abrir menu" class="sm:hidden text-amber-700 focus:outline-none focus:ring-2 focus:ring-amber-500" id="menu-btn">
+     <i class="fas fa-bars fa-lg">
+     </i>
+    </button>
+    <ul class="hidden sm:flex space-x-10 text-lg font-medium text-amber-700" id="menu">
+     <li>
+      <a class="hover:text-amber-900 transition" href="#inicio">
+       Início
+      </a>
+     </li>
+     <li>
+      <a class="hover:text-amber-900 transition" href="#quem-somos">
+       Quem Somos
+      </a>
+     </li>
+     <li>
+      <a class="hover:text-amber-900 transition" href="#cardapio">
+       Cardápio
+      </a>
+     </li>
+     <li>
+      <a class="hover:text-amber-900 transition" href="#reserva">
+       Reserva
+      </a>
+     </li>
+    </ul>
+   </div>
+   <div class="sm:hidden hidden bg-white bg-opacity-95 backdrop-blur-md shadow-inner" id="mobile-menu">
+    <ul class="flex flex-col space-y-4 px-6 py-4 text-amber-700 font-semibold text-lg">
+     <li>
+      <a class="block hover:text-amber-900 transition" href="#inicio" onclick="toggleMenu()">
+       Início
+      </a>
+     </li>
+     <li>
+      <a class="block hover:text-amber-900 transition" href="#quem-somos" onclick="toggleMenu()">
+       Quem Somos
+      </a>
+     </li>
+     <li>
+      <a class="block hover:text-amber-900 transition" href="#cardapio" onclick="toggleMenu()">
+       Cardápio
+      </a>
+     </li>
+     <li>
+      <a class="block hover:text-amber-900 transition" href="#reserva" onclick="toggleMenu()">
+       Reserva
+      </a>
+     </li>
+    </ul>
+   </div>
+  </nav>
+  <!-- Início -->
+  <section class="relative h-screen w-full flex items-center justify-center text-center text-white font-['Playfair_Display']" id="inicio">
+   <img alt="Interior luxuoso de restaurante com iluminação elegante e mesas finamente decoradas, ambiente sofisticado e acolhedor" class="absolute inset-0 w-full h-full object-cover brightness-75" height="1080" src="https://storage.googleapis.com/a1aa/image/fc84d2f8-a77f-41e1-bd0d-acb2e6ae3b02.jpg" width="1920"/>
+   <div class="relative z-10 max-w-3xl px-6">
+    <h1 class="text-5xl sm:text-6xl font-extrabold drop-shadow-lg mb-6">
+     Bem-vindo ao Lustro
+    </h1>
+    <p class="text-lg sm:text-xl mb-10 max-w-xl mx-auto drop-shadow-md">
+     Uma experiência gastronômica de luxo que desperta todos os seus sentidos.
+    </p>
+    <a class="inline-block bg-amber-600 hover:bg-amber-700 transition text-white font-semibold text-lg px-8 py-3 rounded-md shadow-lg drop-shadow-lg focus:outline-none focus:ring-4 focus:ring-amber-400" href="#reserva">
+     Reserve sua mesa
+    </a>
+   </div>
+  </section>
+  <!-- Quem Somos -->
+  <section class="max-w-7xl mx-auto px-6 sm:px-8 py-20 md:py-28 fade-in" id="quem-somos">
+   <h2 class="text-4xl font-playfair font-bold text-amber-700 mb-12 text-center">
+    Quem Somos
+   </h2>
+   <div class="grid gap-12 md:grid-cols-3">
+    <article class="space-y-4">
+     <img alt="Foto antiga em sépia da fachada do restaurante Lustro, mostrando sua fundação e tradição" class="rounded-lg shadow-lg w-full object-cover h-64" height="400" src="https://storage.googleapis.com/a1aa/image/bf7d6688-1c99-4678-1e00-314ef76ca76b.jpg" width="600"/>
+     <h3 class="text-2xl font-semibold text-amber-800">
+      História
+     </h3>
+     <p class="text-gray-700 leading-relaxed">
+      Fundado em 1998, Lustro nasceu da paixão pela alta gastronomia e pelo desejo de criar um espaço onde cada refeição fosse uma obra de arte. Desde então, temos encantado nossos clientes com sabores únicos e um atendimento impecável.
+     </p>
+    </article>
+    <article class="space-y-4">
+     <img alt="Chef preparando prato sofisticado com ingredientes frescos e técnicas refinadas em cozinha moderna" class="rounded-lg shadow-lg w-full object-cover h-64" height="400" src="https://storage.googleapis.com/a1aa/image/2822ff25-ad16-48f7-7fbb-b242b5300ebc.jpg" width="600"/>
+     <h3 class="text-2xl font-semibold text-amber-800">
+      Filosofia Culinária
+     </h3>
+     <p class="text-gray-700 leading-relaxed">
+      Nossa cozinha valoriza ingredientes sazonais e locais, combinados com técnicas contemporâneas para criar pratos que surpreendem e encantam. Cada detalhe é pensado para proporcionar uma experiência sensorial inesquecível.
+     </p>
+    </article>
+    <article class="space-y-4">
+     <img alt="Equipe de chefs e garçons elegantes em uniforme preto e dourado, sorrindo em ambiente sofisticado do restaurante" class="rounded-lg shadow-lg w-full object-cover h-64" height="400" src="https://storage.googleapis.com/a1aa/image/a34acb68-f9e3-433f-ff22-c2768a4122d6.jpg" width="600"/>
+     <h3 class="text-2xl font-semibold text-amber-800">
+      Equipe
+     </h3>
+     <p class="text-gray-700 leading-relaxed">
+      Nosso time é formado por profissionais dedicados e apaixonados, que trabalham com excelência para garantir que cada visita ao Lustro seja perfeita, desde o atendimento até a apresentação dos pratos.
+     </p>
+    </article>
+   </div>
+  </section>
+  <!-- Cardápio -->
+  <section class="bg-white py-20 md:py-28 fade-in" id="cardapio">
+   <div class="max-w-7xl mx-auto px-6 sm:px-8">
+    <h2 class="text-4xl font-playfair font-bold text-amber-700 mb-16 text-center">
+     Cardápio
+    </h2>
+    <div class="grid gap-16 md:grid-cols-3">
+     <!-- Entrada -->
+     <div>
+      <h3 class="text-3xl font-semibold text-amber-800 mb-8 border-b-2 border-amber-600 pb-2">
+       Entrada
+      </h3>
+      <ul class="space-y-8">
+       <li>
+        <h4 class="text-xl font-semibold text-amber-700">
+         Tartar de Salmão
+        </h4>
+        <p class="text-gray-700 italic mb-1">
+         Salmão fresco picado com ervas finas, servido com torradas crocantes.
+        </p>
+        <span class="font-semibold text-amber-900">
+         R$ 48,00
+        </span>
+       </li>
+       <li>
+        <h4 class="text-xl font-semibold text-amber-700">
+         Carpaccio de Filé Mignon
+        </h4>
+        <p class="text-gray-700 italic mb-1">
+         Fatias finas de filé mignon com rúcula, parmesão e azeite trufado.
+        </p>
+        <span class="font-semibold text-amber-900">
+         R$ 55,00
+        </span>
+       </li>
+       <li>
+        <h4 class="text-xl font-semibold text-amber-700">
+         Salada de Figos e Queijo de Cabra
+        </h4>
+        <p class="text-gray-700 italic mb-1">
+         Figos frescos, queijo de cabra, nozes e vinagrete de mel.
+        </p>
+        <span class="font-semibold text-amber-900">
+         R$ 42,00
+        </span>
+       </li>
+      </ul>
+     </div>
+     <!-- Prato Principal -->
+     <div>
+      <h3 class="text-3xl font-semibold text-amber-800 mb-8 border-b-2 border-amber-600 pb-2">
+       Prato Principal
+      </h3>
+      <ul class="space-y-8">
+       <li>
+        <h4 class="text-xl font-semibold text-amber-700">
+         Medalhão de Filé com Molho Madeira
+        </h4>
+        <p class="text-gray-700 italic mb-1">
+         Filé mignon grelhado, molho madeira, purê de batata trufado e legumes na manteiga.
+        </p>
+        <span class="font-semibold text-amber-900">
+         R$ 120,00
+        </span>
+       </li>
+       <li>
+        <h4 class="text-xl font-semibold text-amber-700">
+         Risoto de Lagosta
+        </h4>
+        <p class="text-gray-700 italic mb-1">
+         Risoto cremoso com pedaços suculentos de lagosta e toque de limão siciliano.
+        </p>
+        <span class="font-semibold text-amber-900">
+         R$ 135,00
+        </span>
+       </li>
+       <li>
+        <h4 class="text-xl font-semibold text-amber-700">
+         Confit de Pato com Purê de Mandioquinha
+        </h4>
+        <p class="text-gray-700 italic mb-1">
+         Pato confitado lentamente, servido com purê aveludado e redução de vinho tinto.
+        </p>
+        <span class="font-semibold text-amber-900">
+         R$ 130,00
+        </span>
+       </li>
+      </ul>
+     </div>
+     <!-- Sobremesas -->
+     <div>
+      <h3 class="text-3xl font-semibold text-amber-800 mb-8 border-b-2 border-amber-600 pb-2">
+       Sobremesas
+      </h3>
+      <ul class="space-y-8">
+       <li>
+        <h4 class="text-xl font-semibold text-amber-700">
+         Petit Gâteau de Chocolate Amargo
+        </h4>
+        <p class="text-gray-700 italic mb-1">
+         Bolo quente de chocolate amargo com sorvete de baunilha artesanal.
+        </p>
+        <span class="font-semibold text-amber-900">
+         R$ 38,00
+        </span>
+       </li>
+       <li>
+        <h4 class="text-xl font-semibold text-amber-700">
+         Panna Cotta de Baunilha com Frutas Vermelhas
+        </h4>
+        <p class="text-gray-700 italic mb-1">
+         Delicada panna cotta com calda fresca de frutas vermelhas.
+        </p>
+        <span class="font-semibold text-amber-900">
+         R$ 35,00
+        </span>
+       </li>
+       <li>
+        <h4 class="text-xl font-semibold text-amber-700">
+         Tartelette de Limão Siciliano
+        </h4>
+        <p class="text-gray-700 italic mb-1">
+         Massa crocante com creme de limão siciliano e merengue dourado.
+        </p>
+        <span class="font-semibold text-amber-900">
+         R$ 36,00
+        </span>
+       </li>
+      </ul>
+     </div>
+    </div>
+   </div>
+  </section>
+  <!-- Reserva -->
+  <section class="max-w-3xl mx-auto px-6 sm:px-8 py-20 md:py-28 fade-in" id="reserva">
+   <h2 class="text-4xl font-playfair font-bold text-amber-700 mb-12 text-center">
+    Reserva
+   </h2>
+   <form class="bg-white shadow-lg rounded-lg p-8 space-y-6" id="reserva-form" novalidate="">
+    <div>
+     <label class="block text-amber-800 font-semibold mb-2" for="nome">
+      Nome Completo
+     </label>
+     <input class="w-full border border-amber-300 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500" id="nome" name="nome" placeholder="Seu nome completo" required="" type="text"/>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+     <div>
+      <label class="block text-amber-800 font-semibold mb-2" for="data">
+       Data
+      </label>
+      <input class="w-full border border-amber-300 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500" id="data" name="data" required="" type="date"/>
+     </div>
+     <div>
+      <label class="block text-amber-800 font-semibold mb-2" for="horario">
+       Horário
+      </label>
+      <input class="w-full border border-amber-300 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500" id="horario" name="horario" required="" type="time"/>
+     </div>
+     <div>
+      <label class="block text-amber-800 font-semibold mb-2" for="pessoas">
+       Número de Pessoas
+      </label>
+      <input class="w-full border border-amber-300 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500" id="pessoas" max="20" min="1" name="pessoas" placeholder="1" required="" type="number"/>
+     </div>
+    </div>
+    <button class="w-full bg-amber-600 hover:bg-amber-700 transition text-white font-semibold text-lg py-3 rounded-md shadow-lg focus:outline-none focus:ring-4 focus:ring-amber-400" type="submit">
+     Enviar Reserva
+    </button>
+   </form>
+  </section>
+  <!-- Rodapé -->
+  <footer class="bg-amber-900 text-amber-100 py-12">
+   <div class="max-w-7xl mx-auto px-6 sm:px-8 flex flex-col md:flex-row justify-between items-center space-y-8 md:space-y-0">
+    <div class="text-center md:text-left space-y-2">
+     <h3 class="text-xl font-playfair font-bold">
+      Lustro Restaurante
+     </h3>
+     <p>
+      Av. das Estrelas, 1234 - Bairro Nobre, São Paulo, SP
+     </p>
+     <p>
+      Telefone: (11) 98765-4321
+     </p>
+     <p>
+      Email: contato@lustrorestaurante.com.br
+     </p>
+    </div>
+    <div class="flex space-x-8 text-2xl">
+     <a aria-label="Facebook" class="hover:text-amber-400 transition" href="https://www.facebook.com/lustrorestaurante" rel="noopener" target="_blank">
+      <i class="fab fa-facebook-f">
+      </i>
+     </a>
+     <a aria-label="Instagram" class="hover:text-amber-400 transition" href="https://www.instagram.com/lustrorestaurante" rel="noopener" target="_blank">
+      <i class="fab fa-instagram">
+      </i>
+     </a>
+     <a aria-label="Twitter" class="hover:text-amber-400 transition" href="https://www.twitter.com/lustrorestaurante" rel="noopener" target="_blank">
+      <i class="fab fa-twitter">
+      </i>
+     </a>
+     <a aria-label="LinkedIn" class="hover:text-amber-400 transition" href="https://www.linkedin.com/company/lustrorestaurante" rel="noopener" target="_blank">
+      <i class="fab fa-linkedin-in">
+      </i>
+     </a>
+    </div>
+   </div>
+  </footer>
+  <script>
+   // Toggle mobile menu
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    function toggleMenu() {
+      mobileMenu.classList.toggle('hidden');
+      menuBtn.querySelector('i').classList.toggle('fa-bars');
+      menuBtn.querySelector('i').classList.toggle('fa-times');
+    }
+    menuBtn.addEventListener('click', toggleMenu);
+
+    // Intersection Observer for fade-in animation
+    const faders = document.querySelectorAll('.fade-in');
+    const appearOptions = {
+      threshold: 0.2,
+      rootMargin: "0px 0px -50px 0px"
+    };
+    const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('visible');
+        appearOnScroll.unobserve(entry.target);
+      });
+    }, appearOptions);
+    faders.forEach(fader => {
+      appearOnScroll.observe(fader);
+    });
+
+    // Set minimum date for reservation date input
+    const dataInput = document.getElementById('data');
+    function setMinDate() {
+      const today = new Date();
+      const yyyy = today.getFullYear();
+      const mm = String(today.getMonth() + 1).padStart(2, '0');
+      const dd = String(today.getDate()).padStart(2, '0');
+      const minDate = `${yyyy}-${mm}-${dd}`;
+      dataInput.setAttribute('min', minDate);
+      dataInput.value = minDate;
+    }
+    setMinDate();
+
+    // Optional: form submission handler (just prevent default for demo)
+    const form = document.getElementById('reserva-form');
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      alert('Obrigado por reservar no Lustro! Entraremos em contato para confirmar.');
+      form.reset();
+      setMinDate();
+    });
+  </script>
+ </body>
+</html>
